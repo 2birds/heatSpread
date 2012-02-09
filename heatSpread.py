@@ -38,7 +38,10 @@ class Board(object):
                     #print warmth
                 except:
                     offTheMap+=1
-        self.nextCells[cell]=warmth/4
+        if self.cells[cell] != 100:
+            self.nextCells[cell]=warmth/4
+        else:
+            self.nextCells[cell]=100
 
         #print "State moved."
 
