@@ -1,0 +1,40 @@
+############################################################
+############      H E A T   S P R E A D      ###############
+############################################################
+
+
+V0.1
+
+When creating your initial state, the coordinates 
+where you click get printed to stdout. If you copy and paste
+these into a plain text file, you can give the file name as
+an argument when you launch the program and it will recreate 
+the initial state. I have included gliderGun to demonstrate.
+
+In addition to this, you can specify the size of the board
+in terms of an integer representing the number of cells in
+a side (the board is a square).
+Python doesn't care which argument comes first, or if both
+are present. It will default to a blank board of 55**2 cells.
+
+Dependencies: the pygame module (freely available).
+
+Overview: Based on my game of life implementation, this is
+a cellular automaton which simulates how heat spreads. Upon 
+initiation, you can click around the board to initiate
+points of heat 100. Then press 's' to watch them spread.
+
+How to make it go: make heat.py executable. If you aren't
+using a unix-based system (why not???), you will need to alter 
+(or just delete) the first line of both .py files so they point 
+to the appropriate place. Finally, execute heat.py.
+
+Usage: click to change the state of cells from live to dead
+or dead to live. Black cells are live. Once you're happy with
+your initial state, press 's' to start the process. Unless
+you've altered the program yourself, it will display an 
+updated once every 0.35 seconds. When you're bored, or it's 
+finished, press 'q' to quit.
+
+Implementation by Rob Hawkins. 2012 - The Heat Death of the 
+Universe.
