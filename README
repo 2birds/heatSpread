@@ -3,13 +3,21 @@
 ############################################################
 
 
-V0.1
+V0.2
+
+*UPDATES*
+
+Right-clicking now produces a permanently cold cell as a heat
+sink.
+
+General
 
 When creating your initial state, the coordinates 
-where you click get printed to stdout. If you copy and paste
-these into a plain text file, you can give the file name as
-an argument when you launch the program and it will recreate 
-the initial state. I have included gliderGun to demonstrate.
+where you click and the temperature of the cell (hot or cold)
+get printed to stdout. If you copy and paste these into a 
+plain text file, you can give the file name as an argument 
+when you launch the program and it will recreate 
+the initial state.
 
 In addition to this, you can specify the size of the board
 in terms of an integer representing the number of cells in
@@ -29,12 +37,13 @@ using a unix-based system (why not???), you will need to alter
 (or just delete) the first line of both .py files so they point 
 to the appropriate place. Finally, execute heat.py.
 
-Usage: click to change the state of cells from live to dead
-or dead to live. Black cells are live. Once you're happy with
-your initial state, press 's' to start the process. Unless
-you've altered the program yourself, it will display an 
-updated once every 0.35 seconds. When you're bored, or it's 
-finished, press 'q' to quit.
+Usage: left click to change the state a cell to hot or
+right-click to change it to cold. Red cells are hot. Black are 
+positively freezing. Once you're happy with your initial state, 
+press 's' to start the process. Unless you've altered the 
+program yourself, it will display an updated board once every 
+0.35 seconds. When you're bored, or it's finished, press 'q' to 
+quit.
 
 Implementation by Rob Hawkins. 2012 - The Heat Death of the 
 Universe.

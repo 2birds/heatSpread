@@ -14,6 +14,7 @@ if 3>=len(sys.argv)>1:
             firstState=[]
             while 1:
                 coord=f.readline()
+                print coord
                 if coord=='\n':
                     break
                 else:
@@ -41,12 +42,18 @@ for i in range(0,11):
     exec '%s=%s' %('heat'+str(i), "pygame.image.load('selImages/heat"+str(i)+".gif').convert()")
     exec 'heatColours[%d]=%s' %(i, 'heat'+str(i))
 
+cold=pygame.image.load('selImages/cold.gif').convert()
+heatColours["cold"]=cold
+
 heat1
 
 def update(): # Updates and displays every cell.
     for cell in board.cells:
         cellPos = pygame.Rect(cell[0]*cell_side,cell[1]*cell_side, cell_side, cell_side)
-        temp = board.cells[cell]/10
+        if board.cells[cell] == -1:
+            temp = "cold"
+        else:
+            temp = board.cells[cell]/10
         screen.blit(heatColours[temp], cellPos)
     pygame.display.update()
 
@@ -58,9 +65,15 @@ while breakOut == False: # This loop is for setting the initial state.
     for event in pygame.event.get():
         if event.type == pygame.MOUSEBUTTONDOWN:
             pos = pygame.mouse.get_pos()
+            
+            if pygame.mouse.get_pressed() == (True, False, False): #Left click = hot
+                toTemp="hot"
+            elif pygame.mouse.get_pressed() == (False, False, True): #Right click = cold
+                toTemp="cold"
+                
             x=pos[0]/cell_side # Treats canvas as a grid of squares.
             y=pos[1]/cell_side
-            board.switchState((x,y)) # Changes state of given cell
+            board.switchState((x,y), toTemp) # Changes state of given cell
             update()
             
             print "(%s,%s)" %(x,y) 
